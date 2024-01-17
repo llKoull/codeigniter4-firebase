@@ -36,7 +36,7 @@ with the *Project -> Editor* or *Project -> Owner* role.
 Install easily via Composer to take advantage of CodeIgniter 4's autoloading capabilities
 and always be up-to-date:
 ```bash
-composer require tatter/firebase
+composer require devinet/firebase
 ```
 
 Or, install manually by downloading the source files and adding the directory to
