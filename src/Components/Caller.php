@@ -87,40 +87,24 @@ class Caller
         // Verify it worked
         if (empty($response)) {
             $this->errors[] = 'Failed to execute remote request to ' . $url;
+            return null;
+        }
 
+        // Check the response status code
+        if ($response->getStatusCode() < 200 || $response->getStatusCode() >= 300) {
+            $this->errors[] = 'Response status code not in 200 range: ' . $response->getStatusCode();
             return null;
         }
 
         // Decode the response
-        if (! $body = json_decode($response->getBody())) {
-            $this->errors[] = 'Unable to decode response: ' . $body;
-
+        $decodedBody = json_decode($response->getBody());
+        if ($decodedBody === null) {
+            $this->errors[] = 'Unable to decode response: ' . $response->getBody();
             return null;
         }
 
-        // Check for errors
-        if (! empty($body->error)) {
-            $this->errors[] = $body->error->message;
-            $this->errors[] = $body->error->status;
-
-            if (! empty($body->error->details)) {
-                foreach ($body->error->details as $key => $value) {
-                    $this->errors[] = "{$key} : {$value}";
-                }
-            }
-
-            return null;
-        }
-
-        // Verify the data
-        if (! isset($body->result)) {
-            $this->errors[] = 'Result missing from response: ' . $response->getBody();
-
-            return null;
-        }
-
-        // Otherwise it was a success! Return the data
-        return $body->result;
+        // Return the decoded response body
+        return $decodedBody;
     }
 
     /**

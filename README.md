@@ -1,4 +1,4 @@
-# Tatter\Firebase
+# Devinet\Firebase
 Firebase integration for CodeIgniter 4
 
 [![](https://github.com/tattersoftware/codeigniter4-firebase/workflows/PHPUnit/badge.svg)](https://github.com/tattersoftware/codeigniter4-firebase/actions/workflows/phpunit.yml)
@@ -8,7 +8,7 @@ Firebase integration for CodeIgniter 4
 
 ## Quick Start
 
-1. Install with Composer: `> composer require tatter/firebase`
+1. Install with Composer: `> composer require devinet/firebase`
 2. Edit **.env** and add the path to your Firebase credentials: `GOOGLE_APPLICATION_CREDENTIALS = ../credentials/keyfile.json`
 3. Access components via the service: `$authentication = service('firebase')->auth;`
 4. Use the Firestore `Collection` and `Entity` to model your data: `$widget = collection(WidgetCollection::class)->get($widgetId);`
@@ -36,7 +36,7 @@ with the *Project -> Editor* or *Project -> Owner* role.
 Install easily via Composer to take advantage of CodeIgniter 4's autoloading capabilities
 and always be up-to-date:
 ```bash
-composer require tatter/firebase
+composer require devinet/firebase
 ```
 
 Or, install manually by downloading the source files and adding the directory to
