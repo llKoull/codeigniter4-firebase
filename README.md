@@ -1,4 +1,4 @@
-# Tatter\Firebase
+# Devinet\Firebase
 Firebase integration for CodeIgniter 4
 
 [![](https://github.com/tattersoftware/codeigniter4-firebase/workflows/PHPUnit/badge.svg)](https://github.com/tattersoftware/codeigniter4-firebase/actions/workflows/phpunit.yml)
